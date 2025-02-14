@@ -1,22 +1,18 @@
 #!/bin/bash
 
-maquines=(10.0.0.101 10.0.0.102 10.0.0.103 10.0.0.104 10.0.0.105 10.0.0.106)
-#maquines=(10.0.0.101)
-
-
-
-usuari=lliurex
-password=lliurex
+maquines=(10.0.0.1 10.0.0.2 10.0.0.3 10.0.0.4 10.0.0.5 10.0.0.6)
+usuari=administrador
+password=administrador
 
 # Comanda a executar en remot
 #comanda=reboot
-scriptRemoto=provaRemoto.sh
+scriptRemot=provaRemotVideo.sh
 
 for maquinaActual in "${maquines[@]}"
 do
 	echo "---- Executant en $maquinaActual ----"
 	#ssh $usuari@$maquinaActual $comanda
-	scp ./$scriptRemoto $usuari@$maquinaActual:~
-	ssh $usuari@$maquinaActual "~/$scriptRemoto" &
+	scp ./$scriptRemot $usuari@$maquinaActual:~
+	ssh $usuari@$maquinaActual "~/$scriptRemot" &
 #	ssh $maquinaActual $comanda &
 done

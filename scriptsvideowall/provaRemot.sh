@@ -31,39 +31,39 @@ case $hostname in
 	PC6)
 		fil=2
 		col=2
-		;;	
-	Server)
-		echo "Server"
-		fil=1
-		col=2
 		;;
 esac
 
-
-firefox -private "http://iestacio.ferran-mas.com/wall/tile.php?row=$fil&col=$col" &
+# Opens firefox on the left monitor
+firefox -private "http://10.0.0.10/tile.php?row=$fil&col=$col" &
 sleep 1
+# Moves firefox to the left
 xdotool getactivewindow windowmove 300 300
 sleep 1
-xdotool key alt+F7
+#xdotool key alt+F7
 sleep 1
-xdotool getactivewindow windowmove 300 300
+#xdotool getactivewindow windowmove 300 300
 sleep 1
+# Runs firefox on fullscreen
 xdotool key F11
 #unclutter -idle 0 &
 
 sleep 1
 
 #export DISPLAY=:1.0
+# Opens firefox on the right monitor
 col=$[$col+1]
-firefox -new-window "http://iestacio.ferran-mas.com/wall/tile.php?row=$fil&col=$col" &
+firefox -new-window "http://10.0.0.10/tile.php?row=$fil&col=$col" &
 sleep 1
 
+# Moves firefox to the right
 xdotool getactivewindow windowmove 1450 300
 sleep 1
-xdotool key alt+F7   
+#xdotool key alt+F7   
 sleep 1
-xdotool getactivewindow windowmove 1450 300
+#xdotool getactivewindow windowmove 1450 300
 sleep 1
+# Runs firefox on fullscreen
 xdotool key F11
 
 
